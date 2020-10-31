@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<style>
+    #bg{
+        min-width: 640px;
+		min-height: 100%;
+		width: 100%;
+		height: auto;
+		top: 0;
+		left: 0;
+		position: fixed;
+		background: url(https://cdn.discordapp.com/attachments/771744160126337053/772078460117843988/unknown.png) no-repeat center center fixed;
+		z-index: 1;
+    }
+	#menu{
+	
+		width: 300px;
+		height: 450px;
+		background: rgba(255,79,18,0.5);
+		position: relative;
+		z-index: 2;
+	}
+	#button{
+		padding-left: 5px;;
+		padding-top: 25px;
+	}
+	#button2{
+		padding-left: 5px;;
+		padding-top: 10px;
+	}
+
+</style>
+
+ <head>
+    <title>Coders</title>
+ </head>
+ 
+<body>
+	
+	<div id="bg"> </div>
+	
+	<div id ="menu">
+		<div>
+		<h2>Выбор транспорта</h2>
+		</div>
+		<div id = "button">
+			<form>
+				<p>
+					<b>Вид транспорта:</b><br>
+					<select>
+					  <option>Автобусы</option>
+					  <option>Трамваи</option>
+					  <option>Маршрутное такси</option>
+					</select>
+				</p>
+			</form>
+		</div>
+		
+		<div id = "button2">
+			<form>
+				<p>
+					<b>Номер маршрута:</b><br>
+					<input type="text" size="40">
+				</p>
+			</form>
+		</div>
+		
+		<div id = "button2">
+			<form>
+				<p>
+					<b>Направление:</b><br>
+					<select>
+					  <option>Прямое</option>
+					  <option>Обратное</option>
+					 </select>
+				</p>
+			</form>
+		</div>
+		
+		<div id = "button2">
+			<form>
+				<p>
+					<b>Время:</b><br>
+					<select>
+					  <option>6:00 - 11:00</option>
+					  <option>11:00 - 16:00</option>
+					  <option>16:00 - 20:00</option>
+					  <option>20:00 - 23:00</option>
+					 </select>
+				</p>
+			</form>
+		</div>
+		
+		<div id = "button2">
+			<form>
+				<p>
+					<p style="text-align: center"><button>Отправить данные</button>
+					</p>
+				</p>
+			</form>
+		</div>
+		
+	</div>
+	
+</body>
+	
+</html>
