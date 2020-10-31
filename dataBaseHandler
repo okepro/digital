@@ -1,0 +1,60 @@
+package logic;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class DataBaseHand {
+    List<Transport> info = new ArrayList<>();
+        public List<Transport> showAll() {
+
+
+            try (Connection connection = DBUtil.getDataSource().getConnection()) {
+                PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM transport");
+                ResultSet resultSet = preparedStatement.executeQuery();
+                while (resultSet.next()) {
+                    Transport transport = new Transport(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getInt(5));
+                    info.add(transport);
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return info;
+        }
+
+        public List<Transport> showByNumber(String number_route) {
+            try (Connection connection = DBUtil.getDataSource().getConnection()) {
+                PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM transport WHERE number_route = (?)");
+                preparedStatement.setInt(1, Integer.parseInt(number_route));
+                ResultSet resultSet = preparedStatement.executeQuery();
+                if (resultSet.next()) {
+                    Transport transport = new Transport(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getInt(5));
+                    info.add(transport);
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return allEmp;
+    }
+        public List<Emp> showByName(String type_transprot) {
+                try (Connection connection = DBUtil.getDataSource().getConnection()) {
+                    PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM emp WHERE type_transport = (?)");
+                    preparedStatement.setString(1, type_transprot);
+                    ResultSet resultSet = preparedStatement.executeQuery();
+                    if (resultSet.next()) {
+                        Transport transport = new Transport(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getInt(5));
+                        info.add(transport);
+                    }
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                return info;
+        }
+}
+
